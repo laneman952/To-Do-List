@@ -1,0 +1,11 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    background-image: url(/public/Todo-List-image.png);
+    height: 100vh; 
+    
+}

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function TodoInput() {
+function TodoInput({onAdd}) {
     const [todo, setTodo] = useState('');
 
     return (
@@ -14,7 +14,7 @@ function TodoInput() {
             <button
                 onClick={() => {
                     if (todo.trim()) {
-                        console.log('New Todo:', todo);
+                        onAdd(todo);
                         setTodo('');
                     }
                 }}
