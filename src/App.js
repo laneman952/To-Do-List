@@ -2,6 +2,7 @@ import { useState } from "react";
 import TodoInput from "./TodoInput";
 import TodoList from "./TodoList";
 import "./App.css";
+import bg from './assets/Todo-List-image.png'
 
 
 function App() {
@@ -12,9 +13,12 @@ function App() {
   }
   return (
     <div className="App">
-      <h1>To-Do List</h1>
-      <TodoInput onAdd={addTodo} />
-      <TodoList todos={todos} />
+      <img src={bg} alt="Background" className="background-image" />
+      <div className="overlay">
+        <h1>To-Do List</h1>
+        <TodoInput onAdd={addTodo} />
+        <TodoList todos={todos} />
+      </div>
     </div>
   );
 }

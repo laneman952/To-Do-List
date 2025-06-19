@@ -1,11 +1,95 @@
 .App {
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
-    background-image: url(/public/Todo-List-image.png);
-    height: 100vh; 
-    
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-family: Arial, sans-serif;
+  color: white;
+  min-height: 100vh;
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  object-fit: contain;
+  z-index: -1;
+  background-color: #0b0d1c;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 10px;
+  width: fit-content;
+  margin: auto;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.custom-checkbox {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.custom-checkbox input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.custom-checkbox input:checked + .checkmark {
+  background-image: 
+    url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M20.285 6.709L9.75 17.243 3.715 11.207l1.414-1.414 4.621 4.621L18.871 5.295z"/></svg>'),
+    linear-gradient(to right, rgb(0, 255, 0), rgb(0, 0, 255), rgb(0, 255, 0));
+  background-size: 16px, 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  animation: stamp 0.6s ease-out;
+  transform: scale(1);
+  border-color: rgba(20, 227, 30, 0.475);
+}
+
+@keyframes stamp {
+  0% {
+    transform: scale(2);
+    opacity: 0;
+    filter: drop-shadow(0 0 0px #00ffcc);
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+    filter: drop-shadow(0 0 8px #00ffcc);
+  }
+  75% {
+    transform: scale(0.95);
+    filter: drop-shadow(0 0 12px #00ffcc);
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px #00ffcc);
+  }
 }
