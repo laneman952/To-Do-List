@@ -1,6 +1,6 @@
 import TodoItem from './TodoItem';
 
-function TodoList({ todos }) {
+function TodoList({ todos, onDragStart, onDrop }) {
     return (
         <div>
             {todos.map((task, index) =>(
@@ -9,6 +9,7 @@ function TodoList({ todos }) {
                     text={task} 
                     index={index} 
                     onDragStart={onDragStart} 
+                    onDrop={onDrop}
                 />
             ))}
         </div>
