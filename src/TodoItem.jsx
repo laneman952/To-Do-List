@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-function TodoItem({ text }) {
+function TodoItem({ text, index, onDragStart }) {
     const [isChecked, setIsChecked] = useState(false);
 
     return (
-      <div className="todo-item">
+      <div className="todo-item" draggable="true" onDragStart={() => onDragStart(index)}>
         <label className="custom-checkbox">
         <input 
           type="checkbox" 
