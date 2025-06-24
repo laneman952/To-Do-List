@@ -17,11 +17,15 @@ function TodoItem({ text, index, onDragStart, onDrop }) {
           checked={isChecked} 
           onChange={() => setIsChecked(!isChecked)} 
         />
+        <span className="checkmark"></span>
+        </label>
+        <span>{text}</span>
+          
           <div className="menu-wrapper">
             <button className="menu-button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-
+                ...
             </button>
-
+            
             {isMenuOpen && (
               <div className="dropdown-menu">
                     <button>Edit</button>
@@ -29,9 +33,6 @@ function TodoItem({ text, index, onDragStart, onDrop }) {
               </div>
             )}
           </div>
-        <span className="checkmark"></span>
-        </label>
-        <span>{text}</span>
       </div>
     );
 }
