@@ -13,6 +13,12 @@ function App() {
    setTodos([...todos, newTodo]);
   }
 
+  function updateTodo(index, newText) {
+    const updatedTodos = [...todos];
+    updatedTodos[index] = newText;
+    setTodos(updatedTodos);
+  }
+
   function handleDragStart(index) {
     setDraggedTodoIndex(index);
   }
@@ -33,7 +39,12 @@ function App() {
       <div className="overlay">
         <h1>To-Do List</h1>
         <TodoInput onAdd={addTodo} />
-        <TodoList todos={todos} onDragStart={handleDragStart} onDrop={handleDrop} />
+        <TodoList 
+          todos={todos} 
+          onDragStart={handleDragStart} 
+          onDrop={handleDrop} 
+          onUpdate={updateTodo} 
+        />
       </div>
     </div>
   );
