@@ -19,6 +19,11 @@ function App() {
     setTodos(updatedTodos);
   }
 
+  function deleteTodo(index) {
+    const updatedTodos = todos.filter((_, i) => i !== index);
+    setTodos(updatedTodos);
+  }
+
   function handleDragStart(index) {
     setDraggedTodoIndex(index);
   }
@@ -44,6 +49,7 @@ function App() {
           onDragStart={handleDragStart} 
           onDrop={handleDrop} 
           onUpdate={updateTodo} 
+          onDelete={deleteTodo}
         />
       </div>
     </div>

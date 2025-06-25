@@ -1,11 +1,10 @@
 import { useState } from 'react';
 
-function TodoItem({ text, index, onDragStart, onDrop, onUpdate }) {
+function TodoItem({ text, index, onDragStart, onDrop, onUpdate, onDelete }) {
     const [isChecked, setIsChecked] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isEditing, setIsEditing] = useState(false);
     const [editedText, setEditedText] = useState(text);
-    const [isDeleted, setIsDeleted] = useState(false);
 
     return (
       <div 
@@ -51,7 +50,7 @@ function TodoItem({ text, index, onDragStart, onDrop, onUpdate }) {
                     }}>
                         Edit
                     </button>
-                    <button>Delete</button>
+                    <button onClick={() => onDelete(index)}>Delete</button>
               </div>
             )}
           </div>
