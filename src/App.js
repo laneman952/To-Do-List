@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TodoInput from "./TodoInput";
 import TodoList from "./TodoList";
 import "./App.css";
@@ -8,6 +8,17 @@ import bg from './assets/Todo-List-image.png'
 function App() {
   const [todos, setTodos] = useState([]);
   const [draggedTodoIndex, setDraggedTodoIndex] = useState(null);
+
+  useEffect(() => {
+    const savedTodos = JSON.parse(localStorage.getItem("todos"));
+    if (savedTodos) {
+      setTodos(savedTodos);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   function addTodo(newTodo) {
    setTodos([...todos, newTodo]);
