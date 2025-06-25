@@ -93,3 +93,48 @@
     filter: drop-shadow(0 0 6px #00ffcc);
   }
 }
+
+.menu-button {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0 0.5rem;
+    color: white;
+}
+
+.menu-button:hover {
+    color: rgb(0, 0, 255);
+}
+
+.dropdown-menu {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    top: 30px;
+    right: 0;
+    z-index: 10;
+}
+
+.dropdown-menu button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+    background-color: #333;
+}
+
+.menu-wrapper {
+    position: relative;
+    display: inline-block;
+}

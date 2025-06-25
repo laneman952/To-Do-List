@@ -1,8 +1,11 @@
 import { useState } from 'react';
 
-function TodoItem({ text, index, onDragStart, onDrop }) {
+function TodoItem({ text, index, onDragStart, onDrop, onUpdate }) {
     const [isChecked, setIsChecked] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
+    const [editedText, setEditedText] = useState(text);
+    const [isDeleted, setIsDeleted] = useState(false);
 
     return (
       <div 
@@ -19,7 +22,21 @@ function TodoItem({ text, index, onDragStart, onDrop }) {
         />
         <span className="checkmark"></span>
         </label>
+        {isEditing ? (
+            <input
+              type="text"
+              value={editedText}
+                onChange={(e) => setEditedText(e.target.value)}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                        onUpdate(index, editedText);
+                        setIsEditing(false);
+                    }
+                }}
+            />
+        ) : (
         <span>{text}</span>
+        )}
           
           <div className="menu-wrapper">
             <button className="menu-button" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -28,7 +45,12 @@ function TodoItem({ text, index, onDragStart, onDrop }) {
             
             {isMenuOpen && (
               <div className="dropdown-menu">
-                    <button>Edit</button>
+                    <button onClick={() => {
+                        setIsEditing(true);
+                        setIsMenuOpen(false);
+                    }}>
+                        Edit
+                    </button>
                     <button>Delete</button>
               </div>
             )}
