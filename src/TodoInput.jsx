@@ -9,6 +9,14 @@ function TodoInput({onAdd}) {
                 type="text"
                 value={todo}
                 onChange={(e) => setTodo(e.target.value)}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter' && todo.trim()) {
+                        if (todo.trim()) {
+                            onAdd(todo);
+                            setTodo('');
+                        }
+                    }
+                }}
                 placeholder="Add a new todo"
             />
             <button
