@@ -10,7 +10,7 @@
   -Drag and drop to reorder
   -Saved in localStorage
 
-  ## ![App Screenshot](./Screenshot.png)
+  ## ![App Screenshot](../../Screenshot.png)
 
   ## Installation
   To install necessary dependencies, run the following commands:
